@@ -50,6 +50,7 @@ try:
     print("Connection established on {0}".format(port))
 
     while True:
+        shutter.transmit(0b00000001)
         shutter.receive()
 
 except Exception as e:
