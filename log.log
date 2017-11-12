@@ -1,0 +1,10 @@
+INFO:root:[2017-11-12 12:12:26] Page 1: settings window created
+INFO:root:[2017-11-12 12:12:26] Page 2: enter device window created
+INFO:root:[2017-11-12 12:12:26] Page 3: graphs window created
+INFO:root:[2017-11-12 12:12:26] Page 4: manual window created
+WARNING:root:[2017-11-12 12:12:26] Could not add device: dev
+WARNING:root:[2017-11-12 12:12:26] Error popup shown: Could not add device! | An error has occurred
+WARNING:root:[2017-11-12 12:12:26] Could not add device: device
+WARNING:root:[2017-11-12 12:12:26] Error popup shown: Could not add device! | An error has occurred
+WARNING:root:[2017-11-12 12:12:26] Error popup shown: Error: No name | New device can not be created without a name.
+INFO:root:[2017-11-12 12:12:26] Information popup shown: Aeros Development | we made this dashboard

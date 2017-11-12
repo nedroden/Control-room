@@ -3,6 +3,11 @@
 import serial
 import time
 
+
+def _delay_ms(delay):
+    time.sleep(val / 1000)
+
+
 class Device():
     def __init__(self, name, portNumber, sensorType, minVal, maxLength):
         self.name = name                                                                                                    # Custom name of device. For example: Living room
@@ -27,7 +32,7 @@ class Device():
         self.connection = serial.Serial(self.portNumber, 19200, serial.EIGHTBITS, serial.PARITY_NONE, serial.STOPBITS_ONE, timeout=0.2)     # Opens port to device.
 
     def transmit(self, message):
-        self.connection.write(message)
+        self.connection.write(bytes([message]))
 
     def receive(self):
         data = self.connection.read()
@@ -40,18 +45,21 @@ class Device():
         if transmission == 0xFF or transmission == 0b01110000 or transmission == 64:
             return
 
-        print(transmission)
+        print(transmission, '(', '{:08b}'.format(int(ord(data))), ')')
 
 # Test code
 port = '/dev/ttyACM0'
 
 try:
-    shutter = Device("Attic", port, "Light", 0, 1.50)
+    shutter = Device("Attic", port, "Temp", 0, 1.50)
     print("Connection established on {0}".format(port))
 
     while True:
-        shutter.transmit(0b00000001)
-        shutter.receive()
+        shutter.transmit(0b11111111);
+        shutter.transmit(0b00010010);
+        shutter.transmit(14);
+        shutter.transmit(0b01110000);
+        # shutter.receive()
 
 except Exception as e:
     print(e)

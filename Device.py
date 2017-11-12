@@ -266,7 +266,7 @@ class Device():
 
                 self.value /= 10
                 #print(data)
-                #print(transmission)
+                print(transmission)
                 #print(value)
                 break
             elif transmission == 0b01010001:
